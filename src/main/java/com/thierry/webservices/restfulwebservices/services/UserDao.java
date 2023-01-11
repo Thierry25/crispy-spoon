@@ -9,4 +9,5 @@ public interface UserDao {
     List<User> findAll();
     User save(User user);
     Optional<User> findUserById(int id);
+    void deleteUserById(int id);
 }

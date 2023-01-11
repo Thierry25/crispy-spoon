@@ -28,5 +28,9 @@ public class UserDaoService {
     public User save (User user){
         return userDao.save(user);
     }
+
+    public void deleteUser(Integer id){
+        userDao.deleteUserById(id);
+    }
     // Can have other business logic in here
 }

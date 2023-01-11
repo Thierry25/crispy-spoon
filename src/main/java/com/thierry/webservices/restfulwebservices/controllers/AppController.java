@@ -10,4 +10,9 @@ public class AppController {
     public String rootCall(){
         return "User API up and running";
     }
+    
+    @GetMapping("/hello-world")
+    public String helloWorld(){
+
+    }
 }

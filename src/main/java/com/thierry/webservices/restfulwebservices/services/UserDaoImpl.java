@@ -13,11 +13,13 @@ public class UserDaoImpl implements UserDao{
 
     private static final List<User> users = new ArrayList<>();
 
+    private static int count = 0;
+
     static{
-        users.add(new User(1, "Thierry", LocalDate.now().minusYears(27)));
-        users.add(new User(2, "Loudwige", LocalDate.now().minusYears(28)));
-        users.add(new User(3, "Fabrice", LocalDate.now().minusYears(36)));
-        users.add(new User(4, "Martine", LocalDate.now().minusYears(43)));
+        users.add(new User(++count, "Thierry", LocalDate.now().minusYears(27)));
+        users.add(new User(++count, "Loudwige", LocalDate.now().minusYears(28)));
+        users.add(new User(++count, "Fabrice", LocalDate.now().minusYears(36)));
+        users.add(new User(++count, "Martine", LocalDate.now().minusYears(43)));
     }
 
 
@@ -28,7 +30,7 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public User save(User user) {
-        user.setId(users.size() + 1);
+        user.setId(++count);
         users.add(user);
         return user;
     }
@@ -36,5 +38,10 @@ public class UserDaoImpl implements UserDao{
     @Override
     public Optional<User> findUserById(int id) {
         return users.stream().filter(user -> user.getId().equals(id)).findFirst();
+    }
+
+    @Override
+    public void deleteUserById(int id) {
+        users.removeIf(user -> user.getId() == id);
     }
 }
