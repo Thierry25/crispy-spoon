@@ -1,5 +1,6 @@
 package com.thierry.webservices.restfulwebservices.controllers;
 
+import com.thierry.webservices.restfulwebservices.exceptions.UserNotFoundException;
 import com.thierry.webservices.restfulwebservices.models.User;
 import com.thierry.webservices.restfulwebservices.services.UserDaoService;
 import org.springframework.http.HttpStatus;
@@ -26,8 +27,11 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Integer id){
-        return new ResponseEntity<>(userDaoService.findUserById(id), HttpStatus.FOUND);
+    public User getUserById(@PathVariable Integer id){
+        User user = userDaoService.findUserById(id);
+        if(user == null)
+            throw new UserNotFoundException("id " + id);
+        return user;
     }
 
     @PostMapping
