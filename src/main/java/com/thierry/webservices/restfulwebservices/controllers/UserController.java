@@ -4,6 +4,8 @@ import com.thierry.webservices.restfulwebservices.exceptions.UserNotFoundExcepti
 import com.thierry.webservices.restfulwebservices.models.User;
 import com.thierry.webservices.restfulwebservices.services.UserDaoService;
 import jakarta.validation.Valid;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,11 +30,15 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Integer id){
+    public EntityModel<User> getUserById(@PathVariable Integer id){
         User user = userDaoService.findUserById(id);
         if(user == null)
             throw new UserNotFoundException("id " + id);
-        return user;
+        var entityModel = EntityModel.of(user);
+        var mvcLinkBuilder = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(
+                this.getClass()).getAllUsers());
+        entityModel.add(mvcLinkBuilder.withRel("all-users"));
+        return entityModel;
     }
 
     @DeleteMapping("/{id}")
