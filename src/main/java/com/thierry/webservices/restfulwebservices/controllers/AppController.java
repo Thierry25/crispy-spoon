@@ -16,10 +16,10 @@ public class AppController {
         this.messageSource = messageSource;
     }
 
-    @GetMapping("/")
-    public String rootCall(){
-        return "User API up and running";
-    }
+//    @GetMapping("/")
+//    public String rootCall(){
+//        return "User API up and running";
+//    }
     
     @GetMapping("/hello-world")
     public String helloWorld(){

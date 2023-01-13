@@ -1,0 +1,5 @@
+INSERT INTO user_details(id, name, birth_date) values(100, 'Thierry Marcelin', CURRENT_DATE())
+INSERT INTO user_details(id, name, birth_date) values(101, 'Fabrice Marcelin', CURRENT_DATE())
+INSERT INTO user_details(id, name, birth_date) values(102, 'Martine Marcelin', CURRENT_DATE())
+INSERT INTO user_details(id, name, birth_date) values(103, 'Marguerite Marcelin', CURRENT_DATE())
+INSERT INTO user_details(id, name, birth_date) values(104, 'Samuel Marcelin', CURRENT_DATE())
