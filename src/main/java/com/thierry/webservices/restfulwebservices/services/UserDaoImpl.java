@@ -12,7 +12,7 @@ import java.util.Optional;
 @Component
 public class UserDaoImpl implements UserDao{
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserDaoImpl(UserRepository userRepository){
         this.userRepository = userRepository;

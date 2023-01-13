@@ -3,3 +3,10 @@ INSERT INTO user_details(id, name, birth_date) values(101, 'Fabrice Marcelin', C
 INSERT INTO user_details(id, name, birth_date) values(102, 'Martine Marcelin', CURRENT_DATE())
 INSERT INTO user_details(id, name, birth_date) values(103, 'Marguerite Marcelin', CURRENT_DATE())
 INSERT INTO user_details(id, name, birth_date) values(104, 'Samuel Marcelin', CURRENT_DATE())
+
+INSERT INTO post(id, description, user_id) values(200, 'Want to be a great dev', 100)
+INSERT INTO post(id, description, user_id) values(201, 'Learn iOS Development', 100)
+INSERT INTO post(id, description, user_id) values(202, 'Be a great Android Dev', 100)
+INSERT INTO post(id, description, user_id) values(203, 'Want to learn MBA', 102)
+INSERT INTO post(id, description, user_id) values(204, 'Be an expert in DevOps', 101)
+INSERT INTO post(id, description, user_id) values(205, 'Be great in unit and integration testing', 101)
